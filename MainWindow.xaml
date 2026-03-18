@@ -1,0 +1,101 @@
+﻿<fluent:RibbonWindow x:Class="DALTUDTXD_AppTTvaTKCOBTCTCHIUNENLECHTAMXIEN_DangGiaKhanh_0305968_68TH3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fluent="urn:fluent-ribbon"
+        Title="Thiết kế Cột BTCT Lệch Tâm Xiên - TCVN 5574:2018" Height="700" Width="1100">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <fluent:Ribbon Grid.Row="0">
+            <fluent:RibbonTabItem Header="DỮ LIỆU ĐẦU VÀO">
+                <fluent:RibbonGroupBox Header="Vật liệu">
+                    <fluent:Button Header="Bê tông" Icon="https://cdn-icons-png.flaticon.com/512/3655/3655543.png" />
+                    <fluent:Button Header="Cốt thép" />
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Tiết diện Cột">
+                    <fluent:Button Header="Kích thước b x h" LargeIcon="https://cdn-icons-png.flaticon.com/512/3252/3252934.png" />
+                    <fluent:Button Header="Lớp bảo vệ (a)" />
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Tải trọng">
+                    <fluent:Button Header="Tổ hợp Nội lực" ToolTip="Nhập danh sách N, Mx, My" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="TÍNH TOÁN &amp; KIỂM TRA">
+                <fluent:RibbonGroupBox Header="Xử lý">
+                    <fluent:Button Header="Tính cốt thép" LargeIcon="https://cdn-icons-png.flaticon.com/512/595/595990.png" />
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Kết quả">
+                    <fluent:Button Header="Biểu đồ tương tác 3D" />
+                    <fluent:Button Header="Hàm lượng thép" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="KẾT XUẤT">
+                <fluent:RibbonGroupBox Header="Kết nối BIM">
+                    <fluent:Button Header="XUẤT SANG ETABS" 
+                                   Click="BtnXuatEtabs_Click"
+                                   ToolTip="Gán diện tích thép vào mô hình ETABS"
+                                   LargeIcon="https://www.csiamerica.com/images/products/etabs-nav.png" />
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Báo cáo">
+                    <fluent:Button Header="PDF Thuyết minh" />
+                    <fluent:Button Header="Bảng tính Excel" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+        <ScrollViewer Grid.Row="1">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="/Assets/Images/bgchinh.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+            </ScrollViewer.Background>
+            <StackPanel Margin="20" MaxWidth="800" HorizontalAlignment="Left">
+                <TextBlock Text="THÔNG SỐ THIẾT KẾ CỘT" FontSize="22" FontWeight="Bold" Foreground="#2B579A" Margin="0,0,0,20"/>
+
+                <UniformGrid Columns="2">
+                    <GroupBox Header="Kích thước tiết diện (mm)" Margin="5" Padding="10">
+                        <StackPanel>
+                            <Label Content="Chiều rộng b:"/>
+                            <TextBox Text="400" Margin="0,5"/>
+                            <Label Content="Chiều cao h:"/>
+                            <TextBox Text="600" Margin="0,5"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Vật liệu" Margin="5" Padding="10">
+                        <StackPanel>
+                            <Label Content="Bê tông:"/>
+                            <ComboBox SelectedIndex="0" Margin="0,5">
+                                <ComboBoxItem Content="B25"/>
+                                <ComboBoxItem Content="B30"/>
+                            </ComboBox>
+                            <Label Content="Thép dọc:"/>
+                            <ComboBox SelectedIndex="0" Margin="0,5">
+                                <ComboBoxItem Content="CB400-V"/>
+                                <ComboBoxItem Content="CB500-V"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </GroupBox>
+                </UniformGrid>
+
+                <GroupBox Header="Nội lực tính toán (N, Mx, My)" Margin="5,15,5,5" Padding="10">
+                    <DataGrid AutoGenerateColumns="True" Height="150" Background="White">
+                    </DataGrid>
+                </GroupBox>
+
+                <Button Content="BẮT ĐẦU TÍNH TOÁN" Height="40" Background="#2B579A" Foreground="White" FontWeight="Bold" Margin="5,20,5,0"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Content="Sẵn sàng" />
+            <Separator />
+            <StatusBarItem Content="Tiêu chuẩn: TCVN 5574:2018" />
+        </StatusBar>
+    </Grid>
+</fluent:RibbonWindow>
